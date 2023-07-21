@@ -5,8 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikGrid="using:Telerik.UI.Xaml.Controls.Grid"
     NavigationCacheMode="Required"
     mc:Ignorable="d">
+    
 
     <Grid
         x:Name="CustomerListRoot"
@@ -33,6 +35,20 @@
                     ToolTipService.ToolTip="Update to server" />
             </CommandBar>
             <!--Add StackPanel here-->
+             <telerikGrid:RadDataGrid
+             x:Name="DataGrid"
+             BorderThickness="0"
+             ColumnDataOperationsMode="Flyout"
+             GridLinesVisibility="None"
+             GroupPanelPosition="Left"
+             RelativePanel.AlignLeftWithPanel="True"
+             RelativePanel.AlignRightWithPanel="True"
+             RelativePanel.Below="mainCommandBar"
+             
+             ItemsSource="{x:Bind ViewModel.Customers}"
+                UserEditMode="Inline"
+             />
+             
             <!--Add DataGrid here -->
         </RelativePanel>
 
